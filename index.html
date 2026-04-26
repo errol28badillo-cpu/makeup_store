@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AnythingMart — Buy & Sell Anything</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>AnythingMart</h1>
+    <p>Buy and sell anything in one place.</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Create a Listing</h2>
+      <form id="listingForm" class="listing-form">
+        <label>
+          Title
+          <input id="title" name="title" required maxlength="60" placeholder="e.g. Mountain Bike" />
+        </label>
+        <label>
+          Price ($)
+          <input id="price" name="price" required min="0" step="0.01" type="number" placeholder="299.99" />
+        </label>
+        <label>
+          Category
+          <select id="category" name="category" required>
+            <option value="">Choose one</option>
+            <option>Electronics</option>
+            <option>Fashion</option>
+            <option>Home</option>
+            <option>Sports</option>
+            <option>Vehicles</option>
+            <option>Services</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>
+          Description
+          <textarea id="description" name="description" rows="4" maxlength="240" placeholder="Describe what you're selling..."></textarea>
+        </label>
+        <button type="submit">Post Listing</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Marketplace</h2>
+      <div class="toolbar">
+        <input id="search" placeholder="Search listings..." />
+        <select id="filterCategory">
+          <option value="">All categories</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+          <option>Home</option>
+          <option>Sports</option>
+          <option>Vehicles</option>
+          <option>Services</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div id="listings" class="listings"></div>
+    </section>
+  </main>
+
+  <template id="listingTemplate">
+    <article class="listing">
+      <div>
+        <h3 class="listing-title"></h3>
+        <p class="listing-meta"></p>
+        <p class="listing-description"></p>
+      </div>
+      <div class="listing-actions">
+        <strong class="listing-price"></strong>
+        <button class="buy-btn" type="button">Buy</button>
+        <button class="remove-btn" type="button">Remove</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
